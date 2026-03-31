@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Perhitungan Total Pembelian</title>
+  <link rel="stylesheet" href="toko.css" />
+</head>
+<body>
+
+  <div class="wrapper">
+    <h1>Toko Komputer</h1>
+    <p class="sub">Pilih barang dan jumlah pembelian</p>
+
+    <div class="form-group">
+      <label for="barang">Nama Barang</label>
+      <select id="barang">
+        <option value="Keyboard">Keyboard — Rp 150.000</option>
+        <option value="Mouse">Mouse — Rp 85.000</option>
+        <option value="Monitor">Monitor — Rp 1.500.000</option>
+        <option value="Headset">Headset — Rp 200.000</option>
+        <option value="Flashdisk">Flashdisk — Rp 75.000</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="jumlah">Jumlah Beli</label>
+      <input type="number" id="jumlah" min="1" value="2" />
+    </div>
+
+    <button onclick="hitungTotal()">Hitung Total</button>
+
+    <div id="hasil"></div>
+  </div>
+
+  <script>
+    // Konstanta pajak
+    var PAJAK = 0.10;
+
+    // Array harga barang
+    var barang = {
+      "Keyboard"  : 150000,
+      "Mouse"     : 85000,
+      "Monitor"   : 1500000,
+      "Headset"   : 200000,
+      "Flashdisk" : 75000
+    };
+
+    function formatRupiah(angka) {
+      return 'Rp ' + angka.toLocaleString('id-ID');
+    }
+
+    function hitungTotal() {
+      var namaBarang  = document.getElementById('barang').value;
+      var jumlahBeli  = parseInt(document.getElementById('jumlah').value);
+      var hasilDiv    = document.getElementById('hasil');
+
+      // Validasi jumlah
+      if (isNaN(jumlahBeli) || jumlahBeli < 1) {
+        hasilDiv.style.display = 'block';
+        hasilDiv.className = 'alert error';
+        hasilDiv.innerHTML = '<strong>Perhatian!</strong> Jumlah beli harus minimal 1.';
+        return;
+      }
+
+      // Hitung menggunakan operator aritmatika
+      var hargaSatuan  = barang[namaBarang];
+      var totalSebelum = hargaSatuan * jumlahBeli;
+      var nilaiPajak   = totalSebelum * PAJAK;
+      var totalBayar   = totalSebelum + nilaiPajak;
+
+      // Tampilkan hasil
+      hasilDiv.className = 'hasil';
+      hasilDiv.style.display = 'block';
+      hasilDiv.innerHTML =
+        '<h2>Perhitungan Total Pembelian <span>(Dengan Array)</span></h2>' +
+        '<hr />' +
+        '<table>' +
+          '<tr><td>Nama Barang</td><td>: ' + namaBarang + '</td></tr>' +
+          '<tr><td>Harga Satuan</td><td>: ' + formatRupiah(hargaSatuan) + '</td></tr>' +
+          '<tr><td>Jumlah Beli</td><td>: ' + jumlahBeli + '</td></tr>' +
+          '<tr><td>Total Harga (Sebelum Pajak)</td><td>: ' + formatRupiah(totalSebelum) + '</td></tr>' +
+          '<tr><td>Pajak (10%)</td><td>: ' + formatRupiah(nilaiPajak) + '</td></tr>' +
+          '<tr class="total-row"><td>Total Bayar</td><td>: ' + formatRupiah(totalBayar) + '</td></tr>' +
+        '</table>';
+    }
+
+    // Hitung otomatis saat halaman dibuka
+    window.onload = function() { hitungTotal(); };
+  </script>
+
+</body>
+</html>
