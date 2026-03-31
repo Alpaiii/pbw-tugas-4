@@ -1,0 +1,161 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f0f4f8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 36px 40px;
+  width: 100%;
+  max-width: 440px;
+}
+
+h1 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a202c;
+  margin-bottom: 6px;
+}
+
+.subtitle {
+  font-size: 13px;
+  color: #718096;
+  margin-bottom: 28px;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #4a5568;
+  margin-bottom: 6px;
+}
+
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #1a202c;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+  border-color: #4f46e5;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background: #4f46e5;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background 0.2s, transform 0.1s;
+}
+
+button:hover {
+  background: #4338ca;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+#hasil {
+  margin-top: 24px;
+  padding: 16px 20px;
+  border-radius: 8px;
+  font-size: 15px;
+  display: none;
+}
+
+#hasil.sukses {
+  background: #ebf8ff;
+  border: 1.5px solid #90cdf4;
+  color: #2b6cb0;
+}
+
+#hasil.error {
+  background: #fff5f5;
+  border: 1.5px solid #fc8181;
+  color: #c53030;
+}
+
+.grade-badge {
+  display: inline-block;
+  font-size: 36px;
+  font-weight: 700;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  border-radius: 50%;
+  background: #4f46e5;
+  color: #fff;
+  margin: 8px 0;
+}
+
+.result-label {
+  font-size: 13px;
+  color: #4a5568;
+}
+
+.result-nim {
+  font-weight: 600;
+  font-size: 14px;
+  color: #1a202c;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid #e2e8f0;
+  margin: 20px 0;
+}
+
+.skala-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin-top: 20px;
+}
+
+.skala-table th {
+  text-align: left;
+  padding: 8px 10px;
+  background: #f7fafc;
+  color: #718096;
+  font-weight: 600;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.skala-table td {
+  padding: 7px 10px;
+  border-bottom: 1px solid #f0f4f8;
+  color: #4a5568;
+}
